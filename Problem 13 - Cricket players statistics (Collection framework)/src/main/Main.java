@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
+import bo.SearchByCountry;
+import bo.SearchByJerseyNumber;
 import bo.SearchByName;
 import bo.SearchBySkill;
 import bo.SortByAge;
@@ -102,29 +104,74 @@ public class Main {
 				break;
 
 			case 6: // Search By Name
-								break;
+				System.out.println("Enter name: ");
+				String name = scan.nextLine();
+
+				List<Player> l1 = new SearchByName().searchByName(name, players);
+
+				if (l1.size() > 0) {
+					System.out.format("%-13s%-8s%-15s%-16s%-15s%-25s%-10s%s\n", "Jersey No.", "Name", "Country",
+							"Skill", "Highest Runs", "Highest Wickets Taken", "Age", "Rank");
+					for (Player player : l1) {
+						System.out.println(player);
+					}
+				} else {
+					System.out.println("Player Name Not Found");
+				}
+				break;
 
 			case 7: // Search By Country
+				System.out.println("Enter country: ");
+				String country = scan.nextLine();
+
+				List<Player> l2 = new SearchByCountry().searchByCountry(country, players);
+
+				if (l2.size() > 0) {
+					System.out.format("%-13s%-8s%-15s%-16s%-15s%-25s%-10s%s\n", "Jersey No.", "Name", "Country",
+							"Skill", "Highest Runs", "Highest Wickets Taken", "Age", "Rank");
+					for (Player player : l2) {
+						System.out.println(player);
+					}
+				} else {
+					System.out.println("Country Not Found");
+				}
+
 				break;
 
 			case 8: // Search By Skill
 				System.out.println("Enter skill: ");
 				String skill = scan.nextLine();
 
-				List<Player> p = new SearchBySkill().searchBySkill(skill, players);
-				System.out.format("%-13s%-8s%-15s%-16s%-15s%-25s%-10s%s\n", "Jersey No.", "Name", "Country", "Skill",
-						"Highest Runs", "Highest Wickets Taken", "Age", "Rank");
-				
-				if(p.size() > 0) {
-					for (Player player : p) {
+				List<Player> l3 = new SearchBySkill().searchBySkill(skill, players);
+
+				if (l3.size() > 0) {
+					System.out.format("%-13s%-8s%-15s%-16s%-15s%-25s%-10s%s\n", "Jersey No.", "Name", "Country",
+							"Skill", "Highest Runs", "Highest Wickets Taken", "Age", "Rank");
+					for (Player player : l3) {
 						System.out.println(player);
-					}	
-				}else {
-					System.out.println("No records found");
+					}
+				} else {
+					System.out.println("Skill Not Found");
 				}
 				break;
 
 			case 9: // Search By Jersey Number
+				System.out.println("Enter jersey number: ");
+				int jerseyNumber = scan.nextInt();
+				scan.nextLine();
+
+				List<Player> l4 = new SearchByJerseyNumber().searchByJerseyNumber(jerseyNumber, players);
+
+				if (l4.size() > 0) {
+					System.out.format("%-13s%-8s%-15s%-16s%-15s%-25s%-10s%s\n", "Jersey No.", "Name", "Country",
+							"Skill", "Highest Runs", "Highest Wickets Taken", "Age", "Rank");
+					for (Player player : l4) {
+						System.out.println(player);
+					}
+				} else {
+					System.out.println("Jersey Number Not Found");
+				}
+
 				break;
 
 			case 10: // Exit

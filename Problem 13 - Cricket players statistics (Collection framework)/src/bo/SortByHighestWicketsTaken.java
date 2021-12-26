@@ -8,7 +8,7 @@ public class SortByHighestWicketsTaken implements Comparator<Player> {
 
 	@Override
 	public int compare(Player o1, Player o2) {
-		if (o1.getInHighestWicketsTaken() > o2.getInHighestWicketsTaken()) {
+		if (o1.getInHighestWicketsTaken() < o2.getInHighestWicketsTaken()) {
 			return 1;
 		} else if (o1.getInHighestWicketsTaken() == o2.getInHighestWicketsTaken()) {
 			return 0;
