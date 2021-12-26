@@ -1,0 +1,15 @@
+package bo;
+
+import java.util.Comparator;
+import java.util.List;
+
+import model.Player;
+
+public class SearchByName{
+	public List<Player> searchByName(String name,List<Player> list) {
+		
+		Comparator<Player>comparator = SearchByName
+		
+		return list;
+	}
+}

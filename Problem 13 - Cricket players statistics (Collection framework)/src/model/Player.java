@@ -91,6 +91,6 @@ public class Player {
 
 	@Override
 	public String toString() {
-		return String.format("%s,%s,%s,%s,%s,%s,%s,%s", jerseyNumber,name,country,skill,inHighestRun,inHighestWicketsTaken,age,rank);
+		return String.format("%-13s%-8s%-15s%-16s%-15s%-25s%-10s%s", jerseyNumber,name,country,skill,inHighestRun,inHighestWicketsTaken,age,rank);
 	}
 }

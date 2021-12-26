@@ -1,0 +1,14 @@
+package bo;
+
+import java.util.List;
+
+import model.Player;
+
+public class SearchByName implements Comparable<Player> {
+	public List<Player> searchByName(String name,List<Player> list) {
+		
+		
+		
+		return list;
+	}
+}

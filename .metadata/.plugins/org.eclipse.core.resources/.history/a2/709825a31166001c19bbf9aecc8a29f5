@@ -1,0 +1,16 @@
+package bo;
+
+import java.util.Collections;
+import java.util.List;
+
+import model.Player;
+
+public class SearchBySkill {
+	public List<Player> searchBySkill(String skill,List<Player> list) {
+		
+		Collections.binarySearch(list, skill);
+		
+		return list;
+		
+	}
+}

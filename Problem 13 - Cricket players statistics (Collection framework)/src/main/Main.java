@@ -1,9 +1,16 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
+import bo.SearchByName;
+import bo.SearchBySkill;
+import bo.SortByAge;
+import bo.SortByHighestRuns;
+import bo.SortByHighestWicketsTaken;
+import bo.SortByRank;
 import model.Player;
 
 public class Main {
@@ -27,7 +34,7 @@ public class Main {
 		}
 
 		Integer choice;
-		String ans;
+		String ans = "";
 		do {
 			System.out.println("MENU DRIVEN");
 			System.out.println("1) Display Player Details");
@@ -47,22 +54,90 @@ public class Main {
 			switch (choice) {
 			case 1: // Display player details
 				if (players.size() > 0) {
+					System.out.format("%-13s%-8s%-15s%-16s%-15s%-25s%-10s%s\n", "Jersey No.", "Name", "Country",
+							"Skill", "Highest Runs", "Highest Wickets Taken", "Age", "Rank");
 					for (Player player : players) {
 						System.out.println(player);
 					}
-				}else {
+				} else {
 					System.out.println("No records found");
 				}
 
 				break;
 
 			case 2: // Sort by rank
+				Collections.sort(players, new SortByRank());
+				System.out.format("%-13s%-8s%-15s%-16s%-15s%-25s%-10s%s\n", "Jersey No.", "Name", "Country", "Skill",
+						"Highest Runs", "Highest Wickets Taken", "Age", "Rank");
+				for (Player player : players) {
+					System.out.println(player);
+				}
+				break;
+
+			case 3: // Sort by Highest Score
+				Collections.sort(players, new SortByHighestRuns());
+				System.out.format("%-13s%-8s%-15s%-16s%-15s%-25s%-10s%s\n", "Jersey No.", "Name", "Country", "Skill",
+						"Highest Runs", "Highest Wickets Taken", "Age", "Rank");
+				for (Player player : players) {
+					System.out.println(player);
+				}
+				break;
+
+			case 4: // Sort By Highest Wickets Taken
+				Collections.sort(players, new SortByHighestWicketsTaken());
+				System.out.format("%-13s%-8s%-15s%-16s%-15s%-25s%-10s%s\n", "Jersey No.", "Name", "Country", "Skill",
+						"Highest Runs", "Highest Wickets Taken", "Age", "Rank");
+				for (Player player : players) {
+					System.out.println(player);
+				}
+				break;
+
+			case 5: // Sort By Age
+				Collections.sort(players, new SortByAge());
+				System.out.format("%-13s%-8s%-15s%-16s%-15s%-25s%-10s%s\n", "Jersey No.", "Name", "Country", "Skill",
+						"Highest Runs", "Highest Wickets Taken", "Age", "Rank");
+				for (Player player : players) {
+					System.out.println(player);
+				}
+				break;
+
+			case 6: // Search By Name
+								break;
+
+			case 7: // Search By Country
+				break;
+
+			case 8: // Search By Skill
+				System.out.println("Enter skill: ");
+				String skill = scan.nextLine();
+
+				List<Player> p = new SearchBySkill().searchBySkill(skill, players);
+				System.out.format("%-13s%-8s%-15s%-16s%-15s%-25s%-10s%s\n", "Jersey No.", "Name", "Country", "Skill",
+						"Highest Runs", "Highest Wickets Taken", "Age", "Rank");
+				
+				if(p.size() > 0) {
+					for (Player player : p) {
+						System.out.println(player);
+					}	
+				}else {
+					System.out.println("No records found");
+				}
+				break;
+
+			case 9: // Search By Jersey Number
+				break;
+
+			case 10: // Exit
+				System.out.println("Thank You");
+				break;
 
 			default:
+				System.out.println("Invalid Input");
 				break;
 			}
-
-		} while (choice != 10);
+			System.out.println("Do you wish to continue? (yes/no)");
+			ans = scan.nextLine().toLowerCase();
+		} while (ans.equals("yes") && choice != 10);
 
 		scan.close();
 	}
