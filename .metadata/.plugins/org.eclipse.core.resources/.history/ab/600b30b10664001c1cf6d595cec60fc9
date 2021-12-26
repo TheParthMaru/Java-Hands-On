@@ -1,0 +1,6 @@
+package main;
+
+public class ThreadClass extends Thread{
+	
+	Number num;
+}

@@ -1,0 +1,24 @@
+package main;
+
+public class Numbers {
+	public void evenOdd(int start, int end) {
+		int i = start;
+		while(i <= end) {
+			
+			System.out.println("Even numbers");
+			if(i % 2 == 0) {
+				System.out.print(i + " ");
+				i++;
+				try {
+					Thread.sleep(3000);
+				}catch (InterruptedException e) {
+				}
+			}
+			i = start;
+			System.out.println("Odd numbers");
+			if(i % 2 != 0) {
+				System.out.println();
+			}
+		}
+	}
+}

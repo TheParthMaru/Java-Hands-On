@@ -1,0 +1,18 @@
+package main;
+
+public class Numbers {
+	public void evenOdd(int start, int end) {
+		while(start <= end) {
+			
+			System.out.println("Even numbers");
+			if(start % 2 == 0) {
+				System.out.print(start + " ");
+				start++;
+				try {
+					Thread.sleep(3000);
+				}catch (InterruptedException e) {
+				}
+			}
+		}
+	}
+}

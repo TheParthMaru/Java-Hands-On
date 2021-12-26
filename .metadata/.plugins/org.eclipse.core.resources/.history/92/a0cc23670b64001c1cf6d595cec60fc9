@@ -1,0 +1,10 @@
+package main;
+
+public class Numbers {
+	public void evenOdd(int start, int end) {
+		
+		for(int i = start; i <= end; i++) {
+			Thread.sleep(3000);
+		}
+	}
+}

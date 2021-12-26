@@ -1,0 +1,16 @@
+package main;
+
+public class ThreadClass extends Thread{
+	
+	Numbers num;
+	
+	public ThreadClass(Number num) {
+		this.num = num;
+	}
+	
+	public void run() {
+		synchronized (num) {
+			num.eve
+		}
+	}
+}

@@ -1,0 +1,7 @@
+package bo;
+
+import java.util.Comparator;
+
+public class SortByRank implements Comparator<Player>{
+	
+}

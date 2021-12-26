@@ -1,0 +1,14 @@
+package main;
+
+public class ThreadClass extends Thread{
+	
+	Number num;
+	
+	public ThreadClass(Number num) {
+		this.num = num;
+	}
+	
+	public void run() {
+		
+	}
+}

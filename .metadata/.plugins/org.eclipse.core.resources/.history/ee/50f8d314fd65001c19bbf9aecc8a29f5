@@ -1,0 +1,9 @@
+package bo;
+
+import java.util.Comparator;
+
+import model.Player;
+
+public class SortByHighestWicketsTaken implements Comparator<Player>{
+
+}

@@ -1,0 +1,16 @@
+package main;
+
+public class ThreadClass extends Thread{
+	
+	Numbers num;
+	
+	public ThreadClass(Number num, Integer start, Integer end) {
+		this.num = num;
+	}
+	
+	public void run() {
+		synchronized (num) {
+			num.evenOdd(start, end);
+		}
+	}
+}

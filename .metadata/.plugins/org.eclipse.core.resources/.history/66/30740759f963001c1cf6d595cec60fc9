@@ -1,0 +1,69 @@
+/**
+ * This is comment.
+ * Next line of comment.
+ * Input 1:
+ * 123, Andy, 89, ug
+ * 
+ * Output 1:
+ * UG class timings for next semester is 9 AM to 1 PM.
+ * 123 ~ Andy ~ 89.0 ~ Pass
+ * 
+ * Input 2:
+ * 123, Andy, 45, ug
+ * 
+ * Output 2: 
+ * UG class timings for next semester is 9 AM to 1 PM.
+ * 123 ~ Andy ~ 45 ~ Fail
+ * 
+ * 
+ */
+package main;
+
+import java.util.Scanner;
+
+import dao.CalculatePassFail;
+import dao.Pg;
+import dao.Ug;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner scan = new Scanner(System.in);
+
+		System.out.println("Enter Student Id: ");
+		int id = scan.nextInt();
+		scan.nextLine();
+
+		System.out.println("Enter Student Name: ");
+		String name = scan.nextLine();
+
+		System.out.println("Enter Percentage: ");
+		double percentage = scan.nextDouble();
+		scan.nextLine();
+
+		if (percentage > 100 || percentage < 0) {
+			System.out.println("\nPlease check your percentage");
+			scan.close();
+			return;
+		}
+
+		System.out.println("Are you UG or PG student?(Enter ug or pg only)");
+		String graduate = scan.nextLine();
+
+		if (graduate.equals("ug")) {
+			CalculatePassFail result = new Ug(id, name, percentage);
+			result.classTimings();
+			System.out.println(result.calculation());
+		} else if (graduate.equals("pg")) {
+			CalculatePassFail result = new Pg(id, name, percentage);
+			result.classTimings();
+			System.out.println(result.calculation());
+		} else {
+			System.out.println("\nCheck graduate");
+			return;
+		}
+
+		scan.close();
+	}
+
+}

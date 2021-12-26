@@ -1,0 +1,7 @@
+package main;
+
+public class Numbers {
+	public void evenOdd(int start, int end, int type) {
+		
+	}
+}
